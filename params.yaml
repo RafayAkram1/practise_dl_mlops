@@ -1,0 +1,36 @@
+base:
+  project: Deep learning project for practice of MLOPS and Devops
+
+  data_source:
+    data_src: DataSet
+
+load_data:
+  num_classes: 4
+  raw_data: DataSet
+  pre_processed_data: data/processed
+  full_path: DEEP_LEARNING/DataSet
+
+
+train_split:
+  split_ration: 80
+
+model:
+  name: VGG19
+  trainable: False
+  train_path: data/processed/train
+  test_path: data/processed/test
+  image_size: [255,255]
+  loss: 'categorical_crossentropy'
+  optimier: 'adam'
+  metrices: ['accuracy']
+  epochs: 5
+  sav_dir: saved_models/trained.h5
+
+ima_augment:
+  rescale: 1./255
+  shear_range: 0.2
+  zooom_range: 0.2
+  horizontal_flip: 18
+  class_mode: 'categorical'
+
+  # now if we want to modify our model , we do not have to go an find the place instead we can change the values here and re-train it.
